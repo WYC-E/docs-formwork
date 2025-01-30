@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown Viewer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* 保持原有样式不变 */
+        body { margin: 0; display: flex; height: 100vh; }
+        #sidebar { 
+            width: 300px; 
+            background: #f5f5f5; 
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+        /* 其他样式保持不变... */
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div id="file-list">
+            <h3>文档列表</h3>
+        </div>
+        <div id="outline">
+            <h3>文档大纲</h3>
+        </div>
+    </div>
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <script>
+        // 配置Markdown解析器
+        marked.setOptions({
+            headerIds: true,
+            headerPrefix: 'md-',
+            breaks: true
+        });
+
+        // 自动加载文档列表
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // 通过GitHub API获取文件列表
+                const repo = 'wyc-e/docs-fromwork';  // 修改为你的仓库信息
+                const path = 'markdownfile';  // 你的MD文件目录
+                const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+                
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+                
+                // 筛选.md文件并创建列表
+                const mdFiles = files.filter(file => file.name.endsWith('.md'));
+                const fileList = document.getElementById('file-list');
+                
+                mdFiles.forEach(file => {
+                    const link = document.createElement('a');
+                    link.className = 'file-link';
+                    link.textContent = file.name.replace('.md', '');
+                    link.onclick = () => loadMarkdownFile(file.download_url);
+                    fileList.appendChild(link);
+                });
+
+                // 默认加载第一个文件
+                if(mdFiles.length > 0) {
+                    loadMarkdownFile(mdFiles[0].download_url);
+                }
+            } catch (error) {
+                console.error('加载文件列表失败:', error);
+                fileList.innerHTML = '<div>无法加载文档列表，请检查网络连接</div>';
+            }
+        });
+
+        // 加载并渲染Markdown文件
+        async function loadMarkdownFile(url) {
+            try {
+                const response = await fetch(url);
+                const mdText = await response.text();
+                
+                document.getElementById('content').innerHTML = marked.parse(mdText);
+                addAnchorLinks();
+                renderMathInContent();
+                generateOutline();
+            } catch (error) {
+                console.error('加载文件失败:', error);
+                content.innerHTML = '<h3>文档加载失败</h3>';
+            }
+        }
+
+        // 锚点链接功能（保持原有实现）
+        function addAnchorLinks() {
+            document.querySelectorAll('h1, h2, h3').forEach(heading => {
+                const anchor = document.createElement('a');
+                anchor.className = 'heading-anchor';
+                anchor.href = `#${heading.id}`;
+                anchor.innerHTML = '#';
+                heading.prepend(anchor);
+            });
+        }
+
+        // 数学公式渲染（保持原有实现）
+        function renderMathInContent() {
+            renderMathInElement(document.getElementById('content'), {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+
+        // 生成大纲导航（保持原有实现）
+        function generateOutline() {
+            const outline = document.getElementById('outline');
+            outline.innerHTML = '<h3>文档大纲</h3>';
+            const headings = document.querySelectorAll('#content h1, #content h2, #content h3');
+            
+            headings.forEach(heading => {
+                const level = parseInt(heading.tagName.substring(1));
+                const link = document.createElement('a');
+                link.className = 'outline-item';
+                link.style.paddingLeft = `${(level - 1) * 15}px`;
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent;
+                outline.appendChild(link);
+            });
+        }
+    </script>
+</body>
+</html>
