@@ -42,29 +42,22 @@
         // 自动加载文档列表
         window.addEventListener('DOMContentLoaded', async () => {
             try {
-                // 通过GitHub API获取文件列表
-                const repo = 'wyc-e/docs-fromwork';  // 修改为你的仓库信息
-                const path = 'markdownfile';  // 你的MD文件目录
-                const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
-                
-                const response = await fetch(apiUrl);
+                // 从静态文件加载文件列表
+                const response = await fetch('/markdownfile/list.json');  // 修改为你的文件列表路径
                 const files = await response.json();
                 
-                // 筛选.md文件并创建列表
-                const mdFiles = files.filter(file => file.name.endsWith('.md'));
                 const fileList = document.getElementById('file-list');
-                
-                mdFiles.forEach(file => {
+                files.forEach(file => {
                     const link = document.createElement('a');
                     link.className = 'file-link';
-                    link.textContent = file.name.replace('.md', '');
-                    link.onclick = () => loadMarkdownFile(file.download_url);
+                    link.textContent = file.replace('.md', '');
+                    link.onclick = () => loadMarkdownFile(`/markdownfile/${file}`);
                     fileList.appendChild(link);
                 });
 
                 // 默认加载第一个文件
-                if(mdFiles.length > 0) {
-                    loadMarkdownFile(mdFiles[0].download_url);
+                if(files.length > 0) {
+                    loadMarkdownFile(`/markdownfile/${files[0]}`);
                 }
             } catch (error) {
                 console.error('加载文件列表失败:', error);
@@ -84,7 +77,7 @@
                 generateOutline();
             } catch (error) {
                 console.error('加载文件失败:', error);
-                content.innerHTML = '<h3>文档加载失败</h3>';
+                document.getElementById('content').innerHTML = '<h3>文档加载失败</h3>';
             }
         }
 
