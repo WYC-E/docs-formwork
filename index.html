@@ -88,6 +88,9 @@
                 const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
 
                 const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const files = await response.json();
 
                 // 筛选.md文件并创建列表
