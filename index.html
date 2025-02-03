@@ -116,20 +116,26 @@
         });
 
         // 加载并渲染Markdown文件
-      async function loadMarkdownFile(url) {
+async function loadMarkdownFile(url) {
+    try {
+        const response = await fetch(url);
+        const mdText = await response.text();
+        let parsed;
         try {
-            const response = await fetch(url);
-            const mdText = await response.text();
-            console.log(mdText);
-            document.getElementById('content').innerHTML = marked.parse(mdText);
-            addAnchorLinks();
-            renderMathInContent();
-            generateOutline();
-        } catch (error) {
-            console.error('加载文件失败:', error);
-            content.innerHTML = '<h3>文档加载失败</h3>';
+            parsed = marked.parse(mdText);
+        } catch (markederror) {
+            console.error('Marked解析错误:', markederror);
+            throw new Error('Marked解析Markdown文本失败');
         }
+        document.getElementById('content').innerHTML = parsed;
+        addAnchorLinks();
+        renderMathInContent();
+        generateOutline();
+    } catch (error) {
+        console.error('加载文件失败:', error);
+        content.innerHTML = '<h3>文档加载失败</h3>';
     }
+}
 
         // 锚点链接功能（保持原有实现）
         function addAnchorLinks() {
