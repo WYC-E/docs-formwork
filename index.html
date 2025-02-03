@@ -4,21 +4,61 @@
     <title>Markdown Viewer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <style>
-        /* 保持原有样式不变 */
         body { margin: 0; display: flex; height: 100vh; }
         #sidebar { 
             width: 300px; 
             background: #f5f5f5; 
             padding: 20px;
-            overflow-y: auto;
-            border-right: 1px solid #ddd;
+            overflow - y: auto;
+            border - right: 1px solid #ddd;
         }
-        /* 其他样式保持不变... */
+        #content { 
+            flex: 1; 
+            padding: 20px; 
+            overflow - y: auto;
+            max - width: 800px;
+            margin: 0 auto;
+        }
+      .file - link { 
+            display: block; 
+            padding: 8px;
+            color: #333;
+            text - decoration: none;
+            cursor: pointer;
+        }
+      .file - link:hover { background: #eee; }
+        #outline { 
+            margin - top: 20px; 
+            padding: 10px;
+            background: white;
+            border - radius: 4px;
+        }
+      .outline - item { 
+            display: block; 
+            padding: 4px 0;
+            color: #666;
+            text - decoration: none;
+            font - size: 0.9em;
+        }
+      .outline - item:hover { color: #333; }
+        h1, h2, h3, h4, h5, h6 { 
+            scroll - margin - top: 20px; 
+            position: relative;
+        }
+      .heading - anchor { 
+            position: absolute;
+            left: - 20px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        h1:hover.heading - anchor,
+        h2:hover.heading - anchor,
+        h3:hover.heading - anchor { opacity: 1; }
     </style>
 </head>
 <body>
     <div id="sidebar">
-        <div id="file-list">
+        <div id="file - list">
             <h3>文档列表</h3>
         </div>
         <div id="outline">
@@ -29,35 +69,42 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto - render.min.js"></script>
 
     <script>
         // 配置Markdown解析器
         marked.setOptions({
             headerIds: true,
-            headerPrefix: 'md-',
+            headerPrefix:'md - ',
             breaks: true
         });
 
         // 自动加载文档列表
         window.addEventListener('DOMContentLoaded', async () => {
             try {
-                // 从静态文件加载文件列表
-                const response = await fetch('/markdownfile/list.json');  // 修改为你的文件列表路径
+                // 通过GitHub API获取文件列表
+                const repo = 'wyc - e/docs - formwork';  // 修正仓库名
+                const path ='markdownfile';  
+                const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+
+                const response = await fetch(apiUrl);
                 const files = await response.json();
-                
-                const fileList = document.getElementById('file-list');
-                files.forEach(file => {
+
+                // 筛选.md文件并创建列表
+                const mdFiles = files.filter(file => file.name.endsWith('.md'));
+                const fileList = document.getElementById('file - list');
+
+                mdFiles.forEach(file => {
                     const link = document.createElement('a');
-                    link.className = 'file-link';
-                    link.textContent = file.replace('.md', '');
-                    link.onclick = () => loadMarkdownFile(`/markdownfile/${file}`);
+                    link.className = 'file - link';
+                    link.textContent = file.name.replace('.md', '');
+                    link.onclick = () => loadMarkdownFile(file.download_url);
                     fileList.appendChild(link);
                 });
 
                 // 默认加载第一个文件
-                if(files.length > 0) {
-                    loadMarkdownFile(`/markdownfile/${files[0]}`);
+                if (mdFiles.length > 0) {
+                    loadMarkdownFile(mdFiles[0].download_url);
                 }
             } catch (error) {
                 console.error('加载文件列表失败:', error);
@@ -70,14 +117,14 @@
             try {
                 const response = await fetch(url);
                 const mdText = await response.text();
-                
+
                 document.getElementById('content').innerHTML = marked.parse(mdText);
                 addAnchorLinks();
                 renderMathInContent();
                 generateOutline();
             } catch (error) {
                 console.error('加载文件失败:', error);
-                document.getElementById('content').innerHTML = '<h3>文档加载失败</h3>';
+                content.innerHTML = '<h3>文档加载失败</h3>';
             }
         }
 
@@ -85,7 +132,7 @@
         function addAnchorLinks() {
             document.querySelectorAll('h1, h2, h3').forEach(heading => {
                 const anchor = document.createElement('a');
-                anchor.className = 'heading-anchor';
+                anchor.className = 'heading - anchor';
                 anchor.href = `#${heading.id}`;
                 anchor.innerHTML = '#';
                 heading.prepend(anchor);
@@ -108,11 +155,11 @@
             const outline = document.getElementById('outline');
             outline.innerHTML = '<h3>文档大纲</h3>';
             const headings = document.querySelectorAll('#content h1, #content h2, #content h3');
-            
+
             headings.forEach(heading => {
                 const level = parseInt(heading.tagName.substring(1));
                 const link = document.createElement('a');
-                link.className = 'outline-item';
+                link.className = 'outline - item';
                 link.style.paddingLeft = `${(level - 1) * 15}px`;
                 link.href = `#${heading.id}`;
                 link.textContent = heading.textContent;
