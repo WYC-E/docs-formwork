@@ -20,3 +20,11 @@ code {
     width: calc(100% - 100px);
     margin-left: 40px; /* 使用 margin-left 替代 position 和 left */
 }
+/* body {
+    backdrop-filter: blur(20px);
+} */
+
+#markdownContent {
+    backdrop-filter: blur(60px);   
+    border-radius: 30px;
+}

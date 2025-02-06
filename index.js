@@ -10,6 +10,15 @@ console.log("fileName=" + fileName);
 const filePath = 'markdownfile/' + fileName;
 console.log("filePath=" + filePath);
 
+const _error_message = `
+    <div class="error-message">
+        <img src="https://wyc-w.top/index/footage/1.png" style="left: 10px; top: 10px; position: absolute;">
+        <h1 style="font-size: 50px;">Error 114514-1</h1>
+        <p style="font-size: 25px; font-weight: bold;">文件不存在</p>
+        <a href="https://wyc-w.top" style="color: black; text-decoration: none; font-weight: bold;">返回首页</a>
+    </div>
+`;
+
 // 从本地文件加载 JSON 数据
 fetch('markdownfile/files.json') // 确保文件路径正确
     .then(response => {
@@ -35,7 +44,7 @@ fetch('markdownfile/files.json') // 确保文件路径正确
         } else {
             console.log('文件不存在');
             // 在页面中显示错误信息
-            document.getElementById('markdownContent').innerText = 'error 114514-1';
+            document.getElementById('markdownContent').innerHTML = _error_message;
         }
     })
     .catch(error => {
