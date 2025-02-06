@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>梗百科</title>
+        <style>
+            h1, h2, h3, h4 {
+                color: rgb(44, 62, 80);
+                padding-left: 30px;
+            }
+            p:not(blockquote p), h5, h6 {
+                color: rgb(44, 62, 80);
+                padding-left: 40px;
+            }
+            blockquote {
+                background-color: rgb(239, 239, 239);
+                border-left: 5px solid rgb(112, 198, 190);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            code {
+                background-color: rgb(239, 239, 239);
+                border-left: 5px solid rgb(112, 198, 190);
+                padding: 10px;
+                border-radius: 10px;
+                font-size: larger;
+                font-weight: bold;
+                font-family: 'Courier New', Courier, monospace;
+                display: block;
+                white-space: pre-wrap;
+                overflow: auto;
+                width: calc(100% - 100px);
+                margin-left: 40px; /* 使用 margin-left 替代 position 和 left */
+            }
+        </style>
+        <!-- 引入KaTeX的样式文件 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+    </head>
+    <body>
+        <div id="markdownContent"></div>
+        <script>
+            const behindQ = window.location.search;
+            console.log('behindQ=' + behindQ);
+            const fileName = behindQ.slice(1);
+            console.log("fileName=" + fileName);
+            const filePath = 'markdownfile/' + fileName;
+            console.log("filePath=" + filePath);
+
+            fetch('markdownfile/files.json') // 确保文件路径正确
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('文件加载失败');
+                    }
+                    return response.json(); // 将响应解析为 JSON
+                })
+                .then(data => {
+                    console.log("从本地文件加载的 JSON 数据:", data);
+                    const containsVariable = data.includes(fileName); // 假设 data 是一个数组
+                    if (containsVariable) {
+                        console.log('文件存在');
+                        // 确保KaTeX加载完成后才调用renderMathInElement
+                        window.addEventListener('load', function() {
+                            console.log('KaTeX加载完成');
+                            loadMarkdown(filePath, 'markdownContent');
+                        });
+                    } else {
+                        console.log('文件不存在');
+                        document.getElementById('markdownContent').innerText = 'error 114514-1';
+                    }
+                })
+                .catch(error => {
+                    console.error('加载文件时出错:', error);
+                    document.getElementById('markdownContent').innerText = 'error 114514-2';
+                });
+
+            function loadMarkdown(url, elementId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(markdownText => {
+                        // 使用marked.js解析Markdown
+                        const htmlContent = marked.parse(markdownText);
+                        // 将解析后的HTML插入到页面中指定的元素
+                        document.getElementById(elementId).innerHTML = htmlContent;
+                        // 使用KaTeX渲染数学公式
+                        renderMathInElement(document.getElementById(elementId), {
+                            delimiters: [
+                                { left: "$$", right: "$$", display: true },
+                                { left: "$", right: "$", display: false }
+                            ]
+                        });
+                    })
+                    .catch(error => {
+                        console.error('加载Markdown文件时出错：', error);
+                        document.getElementById(elementId).innerText = 'error 114514-3';
+                    });
+            }
+        </script>
+        <!-- 引入marked.js -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <!-- 引入KaTeX的脚本文件 -->
+        <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+        <!-- 引入KaTeX的自动渲染脚本 -->
+        <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    </body>
+</html>
