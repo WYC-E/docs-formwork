@@ -1,29 +1,28 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffc6c6;
+h1, h2, h3, h4 {
+    color: rgb(80, 44, 44);
+    padding-left: 30px;
 }
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 100%;
+p:not(blockquote p), h5, h6 {
+    color: rgb(80, 44, 44);
+    padding-left: 40px;
+}
+blockquote {
+    background-color: rgb(239, 239, 239);
+    border-left: 5px solid rgb(198, 112, 112);
+    padding: 10px;
+    border-radius: 10px;
+}
+code {
+    background-color: rgb(239, 239, 239);
+    border-left: 5px solid rgb(198, 112, 112);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    white-space: pre-wrap;
     overflow: auto;
-    background-color: #ee9c9c;
-    padding: 20px;
-}
-.content {
-    margin-left: 220px;
-    padding: 20px;
-}
-.sidebar h2 {
-    margin-top: 0;
-}
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-.sidebar ul li a {
-    text-decoration: none;
-    color: #573939;
+    width: calc(100% - 100px);
+    margin-left: 40px; /* 使用 margin-left 替代 position 和 left */
 }
