@@ -41,3 +41,8 @@
   - [ ] b
 
 AB**CD**EF*GH*IJ~KL~MNOPQRSTUVWXYZ
+
+| A | B | C |
+|---|---|---|
+| a | b | c |
+| d | e | f |

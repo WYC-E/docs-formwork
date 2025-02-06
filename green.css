@@ -1,17 +1,25 @@
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: rgb(44, 80, 45);
     padding-left: 30px;
 }
-p:not(blockquote p), h5, h6 {
+
+p:not(blockquote p),
+h5,
+h6 {
     color: rgb(44, 80, 45);
     padding-left: 40px;
 }
+
 blockquote {
     background-color: rgb(239, 239, 239);
     border-left: 5px solid rgb(112, 198, 119);
     padding: 10px;
     border-radius: 10px;
 }
+
 code {
     background-color: rgb(239, 239, 239);
     border-left: 5px solid rgb(112, 198, 119);
@@ -24,5 +32,6 @@ code {
     white-space: pre-wrap;
     overflow: auto;
     width: calc(100% - 100px);
-    margin-left: 40px; /* 使用 margin-left 替代 position 和 left */
+    margin-left: 40px;
+    /* 使用 margin-left 替代 position 和 left */
 }

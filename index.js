@@ -27,7 +27,7 @@ fetch('markdownfile/files.json') // 确保文件路径正确
             throw new Error('文件加载失败');
         }
         // 将响应解析为 JSON
-        return response.json(); 
+        return response.json();
     })
     .then(data => {
         console.log("从本地文件加载的 JSON 数据:", data);
@@ -36,7 +36,7 @@ fetch('markdownfile/files.json') // 确保文件路径正确
         if (containsVariable) {
             console.log('文件存在');
             // 确保 KaTeX 加载完成后才调用 renderMathInElement
-            window.addEventListener('load', function() {
+            window.addEventListener('load', function () {
                 console.log('KaTeX加载完成');
                 // 加载并渲染 Markdown 文件
                 loadMarkdown(filePath, 'markdownContent');
