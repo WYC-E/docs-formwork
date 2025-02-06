@@ -35,6 +35,7 @@ fetch('markdownfile/files.json') // 确保文件路径正确
         const containsVariable = data.includes(fileName); // 假设 data 是一个数组
         if (containsVariable) {
             console.log('文件存在');
+            loadFileList(data);
             // 确保 KaTeX 加载完成后才调用 renderMathInElement
             window.addEventListener('load', function () {
                 console.log('KaTeX加载完成');
@@ -53,6 +54,23 @@ fetch('markdownfile/files.json') // 确保文件路径正确
         // 在页面中显示错误信息
         document.getElementById('markdownContent').innerText = 'error 114514-2';
     });
+
+function loadFileList(files) {
+    // 获取当前页面的基本 URL（不包括查询字符串）
+    const baseUrl = window.location.origin + window.location.pathname;
+
+    // 构建文件列表的 HTML 内容
+    let fileListHtml = '<ul>';
+    files.forEach(file => {
+        // 构建新的链接 URL
+        const newUrl = `${baseUrl}?${encodeURIComponent(file)}`;
+        fileListHtml += `<li><a href="${newUrl}">${file}</a></li>`;
+    });
+    fileListHtml += '</ul>';
+
+    // 将文件列表插入到页面中
+    document.getElementById('sidebarContent').innerHTML = fileListHtml;
+}
 
 /**
  * 加载并渲染 Markdown 文件到指定的 HTML 元素中
