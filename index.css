@@ -1,19 +1,23 @@
-h1,
+h1:not(.error-message h1),
 h2,
 h3,
 h4 {
     padding-left: 30px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-p:not(blockquote p),
+p:not(blockquote p):not(.error-message p),
 h5,
 h6 {
     padding-left: 40px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 blockquote {
     padding: 10px;
     border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
 }
 
 code {
@@ -28,13 +32,35 @@ code {
     width: calc(100% - 100px);
     margin-left: 40px;
     /* 使用 margin-left 替代 position 和 left */
+    /* transition: background-color 0.3s, color 0.3s; */
+    transition: all 0.3s;
 }
 
 /* body {
     backdrop-filter: blur(20px);
 } */
 
-#markdownContent {
+/* #markdownContent {
     backdrop-filter: blur(60px);
     border-radius: 30px;
+} */
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#changecolor {
+    position: fixed;
+    top: 10px; /* 根据需要调整距离顶部的距离 */
+    right: 10px; /* 根据需要调整距离右侧的距离 */
+    z-index: 1000; /* 确保按钮在其他元素之上 */
 }

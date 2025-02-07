@@ -19,6 +19,44 @@ const _error_message = `
     </div>
 `;
 
+document.getElementById("sidebar").style.display = "none";
+document.getElementById("hidefileListButton").style.display = "none";
+document.getElementById("fileListButton").addEventListener("click", function () {
+    document.getElementById("sidebar").style.display = "block";
+    document.getElementById("hidefileListButton").style.display = "block";
+    document.getElementById("fileListButton").style.display = "none";
+
+})
+document.getElementById("hidefileListButton").addEventListener("click", function () {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("hidefileListButton").style.display = "none";
+    document.getElementById("fileListButton").style.display = "block";
+
+})
+
+document.getElementById("changecolor").addEventListener("click", function () {
+    const colorElement = document.getElementById("color");
+    const currentColor = colorElement.href.split('/').pop();
+    if (currentColor === "blue.css") {
+        colorElement.href = "./red.css";
+        localStorage.setItem("currentColor", "red.css");
+    } else if (currentColor === "red.css") {
+        colorElement.href = "./green.css";
+        localStorage.setItem("currentColor", "green.css");
+    } else if (currentColor === "green.css") {
+        colorElement.href = "./blue.css";
+        localStorage.setItem("currentColor", "blue.css");
+    }
+});
+
+// 页面加载时应用用户选择的颜色
+window.onload = function () {
+    const savedColor = localStorage.getItem("currentColor");
+    if (savedColor) {
+        document.getElementById("color").href = `./${savedColor}`;
+    }
+};
+
 // 从本地文件加载 JSON 数据
 fetch('markdownfile/files.json') // 确保文件路径正确
     .then(response => {
@@ -31,11 +69,11 @@ fetch('markdownfile/files.json') // 确保文件路径正确
     })
     .then(data => {
         console.log("从本地文件加载的 JSON 数据:", data);
+        loadFileList(data);
         // 检查文件名是否存在于 JSON 数据中
         const containsVariable = data.includes(fileName); // 假设 data 是一个数组
         if (containsVariable) {
             console.log('文件存在');
-            loadFileList(data);
             // 确保 KaTeX 加载完成后才调用 renderMathInElement
             window.addEventListener('load', function () {
                 console.log('KaTeX加载完成');

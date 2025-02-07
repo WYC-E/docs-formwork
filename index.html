@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>梗百科</title>
-    <link rel="stylesheet" href="./green.css">
+    <link rel="stylesheet" id="color" href="./green.css">
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://wyc-w.top/index.css">
+    <!-- <link rel="stylesheet" href="https://wyc-w.top/index.css"> -->
     <!-- 引入KaTeX的样式文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 </head>
 
 <body>
-    <header class="top_bar">
+    <!-- <header class="top_bar">
         <nav>
             <a href="https://wyc-w.top" target="_blank">首页</a>
             <a href="https://github.com/wyc-e/wyc-w.top" target="_blank">网页开源</a>
@@ -27,10 +27,17 @@
             <a href="https://www.bitbug.net/" target="_blank">比特虫——ico图标转换工具</a>
             <a href="./more/index.html" target="_blank">更多</a>
         </nav>
-    </header>
-    <sidebar>
-        <h1 style="color: white;">文件列表</h1>
+    </header> -->
+    <div class="top_bar">
+        <button type="button" id="fileListButton">文件列表</button>
+        <button type="button" id="hidefileListButton">隐藏文件列表</button>
+        <button type="button" id="changecolor">更改颜色</button>
+    </div>
+    <sidebar id="sidebar">
+        <h1>文件列表</h1>
         <div id="sidebarContent"></div>
+        <hr>
+        <hr>
     </sidebar>
     <div id="markdownContent"></div>
     <script src="./index.js"></script>
