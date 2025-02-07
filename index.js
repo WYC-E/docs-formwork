@@ -10,6 +10,8 @@ console.log("fileName=" + fileName);
 const filePath = 'markdownfile/' + fileName;
 console.log("filePath=" + filePath);
 
+document.getElementById("title").innerText = fileName;
+
 const _error_message = `
     <div class="error-message">
         <img src="https://wyc-w.top/index/footage/1.png" style="left: 10px; top: 10px; position: absolute;">
