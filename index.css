@@ -64,3 +64,58 @@ button:hover {
     right: 10px; /* 根据需要调整距离右侧的距离 */
     z-index: 1000; /* 确保按钮在其他元素之上 */
 }
+/* 文件树样式 */
+.file-tree {
+  list-style: none;
+  padding-left: 1em;
+  font-weight: bold;
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+.file-tree li {
+  margin: 5px 0;
+}
+
+.file-tree a {
+  color: #0366d6;
+  text-decoration: none;
+  display: block;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.file-tree a:hover {
+  background: rgba(44, 62, 80, 0.363);
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+.remote-file a {
+  color: #28a745;
+}
+
+.remote-file a:hover {
+  background: rgba(44, 80, 45, 0.363);
+}
+
+.file-desc {
+  display: block;
+  font-size: 0.85em;
+  color: #666;
+  margin-left: 10px;
+}
+
+.star-file a {
+ color: #800303;
+}
+
+.star-file a:hover {
+  background: rgba(80, 44, 44, 0.363); 
+}
+
+.error {
+  padding: 20px;
+  background: #ffeef0;
+  border: 1px solid #ffdce0;
+  border-radius: 6px;
+  margin: 20px;
+}

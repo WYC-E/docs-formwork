@@ -1,7 +1,33 @@
+
 [
-    "Example.md",
-    "mathhomework.md",
-    "englishhomework.md",
-    "chinesehomework.md",
-    "luotuoxiangzi.md"
+    {
+        "name": "Example",
+        "path": "Example.md",
+        "description": "示例"
+    },
+    {
+        "name": "mathhomework",
+        "path": "mathhomework.md",
+        "description": "数学作业"
+    },
+    {
+        "name": "englishhomework",
+        "path": "englishhomework.md",
+        "description": "英语作业"
+    },
+    {
+        "name": "chinesehomework",
+        "path": "chinesehomework.md",
+        "description": "语文作业"
+    },
+    {
+        "name": "luotuoxiangzi",
+        "path": "luotuoxiangzi.md",
+        "description": "骆驼祥子"
+    },
+    {
+    "name": "README",
+    "path": "https://raw.githubusercontent.com/WYC-E/WYC-E/main/README.md",
+    "description": "README"
+    }
 ]
