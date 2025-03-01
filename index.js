@@ -167,3 +167,16 @@ function loadMarkdown(url, elementId) {
         </div>`;
     });
 }
+
+document.getElementById('fileListButton').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.add('active');
+});
+
+document.getElementById('hidefileListButton').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('active');
+});
+
+// 点击内容区域关闭侧边栏
+document.getElementById('markdownContent').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('active');
+});
