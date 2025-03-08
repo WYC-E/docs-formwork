@@ -2,38 +2,38 @@ h1:not(.error-message h1),
 h2,
 h3,
 h4 {
-    padding-left: 30px;
-    transition: background-color 0.3s, color 0.3s;
+  padding-left: 30px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 p:not(blockquote p):not(.error-message p),
 h5,
 h6 {
-    padding-left: 40px;
-    transition: background-color 0.3s, color 0.3s;
+  padding-left: 40px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 blockquote {
-    padding: 10px;
-    border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s;
-    transition: all 0.3s;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s;
 }
 
 code {
-    padding: 10px;
-    border-radius: 10px;
-    font-size: larger;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    display: block;
-    white-space: pre-wrap;
-    overflow: auto;
-    width: calc(100% - 100px);
-    margin-left: 40px;
-    /* 使用 margin-left 替代 position 和 left */
-    /* transition: background-color 0.3s, color 0.3s; */
-    transition: all 0.3s;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: larger;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  display: block;
+  white-space: pre-wrap;
+  overflow: auto;
+  width: calc(100% - 100px);
+  margin-left: 40px;
+  /* 使用 margin-left 替代 position 和 left */
+  /* transition: background-color 0.3s, color 0.3s; */
+  transition: all 0.3s;
 }
 
 /* body {
@@ -46,24 +46,28 @@ code {
 } */
 
 button {
-    padding: 5px 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 #changecolor {
-    position: fixed;
-    top: 10px; /* 根据需要调整距离顶部的距离 */
-    right: 10px; /* 根据需要调整距离右侧的距离 */
-    z-index: 1000; /* 确保按钮在其他元素之上 */
+  position: fixed;
+  top: 10px;
+  /* 根据需要调整距离顶部的距离 */
+  right: 10px;
+  /* 根据需要调整距离右侧的距离 */
+  z-index: 1000;
+  /* 确保按钮在其他元素之上 */
 }
+
 /* 文件树样式 */
 .file-tree {
   list-style: none;
@@ -105,11 +109,11 @@ button:hover {
 }
 
 .star-file a {
- color: #800303;
+  color: #800303;
 }
 
 .star-file a:hover {
-  background: rgba(80, 44, 44, 0.363); 
+  background: rgba(80, 44, 44, 0.363);
 }
 
 .error {
@@ -122,30 +126,30 @@ button:hover {
 
 /* 侧边栏侧拉效果 */
 #sidebar {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    bottom: 0;
-    width: 250px;
-    background: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
 }
 
 #sidebar.active {
-    left: 0;
+  left: 0;
 }
 
 #markdownContent {
-    transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease;
 }
 
-#sidebar.active + #markdownContent {
-    margin-left: 250px;
+#sidebar.active+#markdownContent {
+  margin-left: 250px;
 }
 
 .top_bar {
-    position: relative;
-    z-index: 1000;
+  position: relative;
+  z-index: 1000;
 }

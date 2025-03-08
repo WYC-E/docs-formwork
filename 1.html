@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Markdown Viewer with Sidebar</title>
     <link rel="stylesheet" href="./red.css">
 </head>
+
 <body>
     <div class="sidebar">
         <h2>Table of Contents</h2>
@@ -22,7 +24,7 @@
             fetch(url)
                 .then(response => response.text())
                 .then(markdownText => {
-                // 使用marked.js解析Markdown
+                    // 使用marked.js解析Markdown
                     const htmlContent = marked.parse(markdownText);
                     // 将解析后的HTML插入到页面中指定的元素
                     document.getElementById(elementId).innerHTML = htmlContent;
@@ -53,4 +55,5 @@
         window.onload = generateTOC;
     </script>
 </body>
+
 </html>

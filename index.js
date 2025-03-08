@@ -16,10 +16,10 @@ console.log('原始路径参数:', safeFilePath);
  * 仅过滤本地路径，替换路径中的 '../' 和 '\\..' 为空字符串，同时将连续的斜杠替换为单个斜杠。
  */
 // const safeFilePath = filePathParam
-  // 移除路径中的 '../' 和 '\\..'，防止目录遍历攻击
-  // .replace(/(\.\.\/)|(\\\.\.)/g, '') 
-  // 将连续的斜杠替换为单个斜杠
-  // .replace(/\/\//g, '/');
+// 移除路径中的 '../' 和 '\\..'，防止目录遍历攻击
+// .replace(/(\.\.\/)|(\\\.\.)/g, '') 
+// 将连续的斜杠替换为单个斜杠
+// .replace(/\/\//g, '/');
 
 // 判断是否为远程文件
 // 通过检查安全路径是否以 'http' 开头来判断是否为远程文件
@@ -30,7 +30,7 @@ const finalPath = isRemoteFile ? safeFilePath : `markdownfile/${safeFilePath}`;
 console.log('最终文件路径:', finalPath);
 
 // 设置页面标题为文件名，如果文件名为空则显示 '未知文件'
-document.getElementById("title").innerText = 
+document.getElementById("title").innerText =
   // 从安全路径中提取文件名，并设置为页面标题
   safeFilePath.split('/').pop() || '未知文件';
 
@@ -70,12 +70,12 @@ document.getElementById("changecolor").addEventListener("click", function () {
   const currentColor = colorElement.href.split('/').pop();
   // 定义颜色主题的顺序
   const colorOrder = ["blue.css", "red.css", "green.css"];
-  
+
   // 获取当前颜色主题在顺序数组中的索引
   const currentIndex = colorOrder.indexOf(currentColor);
   // 计算下一个颜色主题的索引
   const newColor = colorOrder[(currentIndex + 1) % 3];
-  
+
   // 更新颜色主题的链接
   colorElement.href = `./${newColor}`;
   // 将新的颜色主题保存到本地存储中
@@ -83,7 +83,7 @@ document.getElementById("changecolor").addEventListener("click", function () {
 });
 
 // 页面加载完成后，从本地存储中读取保存的颜色主题并应用
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   // 从本地存储中获取保存的颜色主题，如果不存在则使用默认的 'green.css'
   const savedColor = localStorage.getItem("currentColor") || "green.css";
   // 更新颜色主题的链接
@@ -107,7 +107,7 @@ fetch('markdownfile/files.json')
     console.log("加载的文件列表:", data);
     // 调用loadFileList函数生成文件列表
     loadFileList(data);
-    
+
     // 新增调试信息
     // 打印白名单路径列表，方便调试
     console.log('白名单路径列表:', data.map(item => item.path));
@@ -125,21 +125,21 @@ fetch('markdownfile/files.json')
     if (isRemoteFile) {
       // 如果是远程文件，直接加载
       console.log('远程文件，直接加载...');
-      loadMarkdown(finalPath,'markdownContent');
+      loadMarkdown(finalPath, 'markdownContent');
     } else {
       // 如果是本地文件，进行路径参数的安全过滤
       console.log('本地文件，进行路径参数安全过滤...');
-        if (isValidFile) {
-          // 如果校验通过，打印信息并调用loadMarkdown函数加载Markdown文件
-          console.log('校验通过，开始加载文件...');
-          loadMarkdown(finalPath, 'markdownContent');
-        } else {
-          // 如果校验失败，打印警告信息并显示错误信息
-          console.warn('文件校验失败：路径不存在于白名单');
-          document.getElementById('markdownContent').innerHTML = _error_message;
-        }
+      if (isValidFile) {
+        // 如果校验通过，打印信息并调用loadMarkdown函数加载Markdown文件
+        console.log('校验通过，开始加载文件...');
+        loadMarkdown(finalPath, 'markdownContent');
+      } else {
+        // 如果校验失败，打印警告信息并显示错误信息
+        console.warn('文件校验失败：路径不存在于白名单');
+        document.getElementById('markdownContent').innerHTML = _error_message;
+      }
     }
-    
+
   })
   .catch(error => {
     // 捕获并处理加载过程中出现的错误
@@ -160,7 +160,7 @@ function loadFileList(files) {
   const baseUrl = window.location.origin + window.location.pathname;
   // 初始化文件列表的HTML字符串
   let fileListHtml = '<ul class="file-tree">';
-  
+
   // 遍历文件列表，为每个文件生成链接
   files.forEach(file => {
     // 对文件路径进行编码
@@ -176,7 +176,7 @@ function loadFileList(files) {
         </a>
       </li>`;
   });
-  
+
   // 结束文件列表的HTML字符串
   fileListHtml += '</ul>';
   // 将生成的HTML字符串插入到侧边栏内容区域
@@ -195,7 +195,7 @@ function loadMarkdown(url, elementId) {
   const isRemote = url.startsWith('http');
   // 记录开始加载的时间
   const startTime = Date.now();
-  
+
   // 发起HTTP请求获取Markdown文件内容
   fetch(url)
     .then(response => {
@@ -209,16 +209,16 @@ function loadMarkdown(url, elementId) {
       const renderTime = Date.now() - startTime;
       // 打印文件加载成功信息和耗时
       console.log(`文件加载成功，耗时 ${renderTime}ms`);
-      
+
       // 使用marked库将Markdown文本解析为HTML
       const htmlContent = marked.parse(markdownText, {
         breaks: true,
         gfm: true
       });
-      
+
       // 将渲染结果插入到指定元素中
       document.getElementById(elementId).innerHTML = htmlContent;
-      
+
       // 延迟50ms后渲染数学公式
       setTimeout(() => {
         renderMathInElement(document.getElementById(elementId), {
@@ -244,15 +244,15 @@ function loadMarkdown(url, elementId) {
 
 // 点击文件列表按钮时，为侧边栏添加 'active' 类
 document.getElementById('fileListButton').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.add('active');
+  document.getElementById('sidebar').classList.add('active');
 });
 
 // 点击隐藏文件列表按钮时，移除侧边栏的 'active' 类
 document.getElementById('hidefileListButton').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.remove('active');
+  document.getElementById('sidebar').classList.remove('active');
 });
 
 // 点击内容区域时，移除侧边栏的 'active' 类
 document.getElementById('markdownContent').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.remove('active');
+  document.getElementById('sidebar').classList.remove('active');
 });
