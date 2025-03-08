@@ -255,4 +255,6 @@ document.getElementById('hidefileListButton').addEventListener('click', () => {
 // 点击内容区域时，移除侧边栏的 'active' 类
 document.getElementById('markdownContent').addEventListener('click', () => {
   document.getElementById('sidebar').classList.remove('active');
+  document.getElementById("fileListButton").style.display = "block";
+  document.getElementById("hidefileListButton").style.display = "none";
 });
