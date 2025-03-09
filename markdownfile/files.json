@@ -28,5 +28,10 @@
         "name": "README",
         "path": "https://raw.githubusercontent.com/WYC-E/WYC-E/main/README.md",
         "description": "README"
+    },
+    {
+        "name": "太好了，是验证，我们有救了",
+        "path": "shiyanzheng.md",
+        "description": "验证"
     }
 ]
