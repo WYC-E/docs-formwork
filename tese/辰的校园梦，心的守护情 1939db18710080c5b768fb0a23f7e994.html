@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>辰的校园梦，心的守护情</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><a
+	type="button"
+	id="fileListButton"
+	style="
+	padding: 5px 10px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;"
+	href="../index.html"
+	>返回</a><article id="1939db18-7100-80c5-b768-fb0a23f7e994" class="page serif"><header><img class="page-cover-image" src="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E8%83%8C%E6%99%AF%E9%9A%90%E8%97%8F_%E5%8E%8B%E7%BC%A9%E5%90%8E.jpg" style="object-position:center 100%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">❤️</span></div><h1 class="page-title"><strong>辰的校园梦，心的守护情</strong></h1><p class="page-description"></p></header><div class="page-body"><blockquote id="1a39db18-7100-80a6-81fc-eaae57b74d3f" class="">（色情内容可能会对个人的身心健康、社交能力、学业和工作等方面造成负面影响。我们应该遵守中国的法律法规，并寻找其他有益和健康的娱乐方式。同时，我也鼓励您探索更多健康、积极的活动，如运动、阅读等，以丰富您的生活。）</blockquote><hr id="1a39db18-7100-803d-9389-c1e3e066fd61"/><h1 id="19d9db18-7100-800f-baef-f4e984a30d2c" class="">人物介绍</h1><div><h2 id="19d9db18-7100-8022-9143-fb87bf6bbd33" class="">孙嘉辰</h2><ol type="1" id="19d9db18-7100-805e-97a7-d4be24e87792" class="numbered-list" start="1"><li><strong>基本信息</strong><p id="19d9db18-7100-80d9-8f2d-cd7ca943c5e5" class=""><strong>姓名</strong>：孙嘉辰</p><p id="19d9db18-7100-8067-995a-c22a6db4af22" class=""><strong>年龄</strong>：13 岁</p><p id="19d9db18-7100-80be-87f5-db84fa23dbf6" class=""><strong>身份</strong>：家中次子，有一个双胞胎弟弟孙珈晨和一个姐姐孙葭宸</p></li></ol><ol type="1" id="19d9db18-7100-80e4-a347-e0b548b80c53" class="numbered-list" start="2"><li><strong>外貌形象</strong><p id="19d9db18-7100-8078-be91-d37c3aadd253" class="">孙嘉辰身形略显清瘦，皮肤白皙，透着少年独有的朝气。他的眼睛犹如夜空中闪烁的星辰，明亮而深邃，仿佛藏着无尽的故事。高挺的鼻梁下，是一张总是带着温暖笑容的嘴巴。一头乌黑的短发干净利落，随风轻动时，尽显青春活力。走路时步伐轻快，举手投足间带着少年的灵动与洒脱。</p></li></ol><ol type="1" id="19d9db18-7100-800d-8d6c-dacfd8c6a9b8" class="numbered-list" start="3"><li><strong>性格特点</strong><p id="19d9db18-7100-80e6-9c63-e66a4f22389c" class="">性格开朗乐观，内心却有着细腻的一面。他对家人和朋友真诚热情，总是带着阳光般的笑容，能轻易感染身边的人。有着强烈的好奇心，对新鲜事物充满探索欲望，喜欢挑战未知。在面对困难时，虽年纪尚小，却有着超乎常人的勇气和坚韧，从不轻易言败。对待感情十分纯粹，尤其是对双胞胎弟弟孙珈晨和姐姐孙葭宸，他的爱情热烈而真挚，这种情感远超普通的亲情，带着一种独占的依赖。</p></li></ol><ol type="1" id="19d9db18-7100-807b-92b1-edb1b7b99672" class="numbered-list" start="4"><li><strong>日常爱好</strong><p id="19d9db18-7100-80cc-b8d2-dd0e904cf797" class="">热爱阅读，无论是科幻小说、历史故事还是文学名著，他都爱不释手，常常沉浸在书籍的世界里，通过文字去探索不同的人生和奇妙的宇宙。同时，他也痴迷于绘画，用画笔描绘出心中的美好世界，画中常常出现他与弟弟、姐姐一起生活的温馨场景，那些画作是他情感的寄托。此外，他还热衷于户外运动，像骑自行车、登山等，享受在大自然中挥洒汗水的快乐，感受风的拥抱和阳光的照耀。</p></li></ol><ol type="1" id="19d9db18-7100-80e4-a0d4-e9f6136879a5" class="numbered-list" start="5"><li><strong>人物关系</strong><p id="19d9db18-7100-80c5-9b60-d4f129421643" class="">与双胞胎弟弟孙珈晨关系最为亲密，两人一同成长，分享着生活的点点滴滴，彼此间有着深厚的默契，他们的喜欢超越了普通的兄弟情谊，是一种深入骨髓的依赖。对姐姐孙葭宸，他满怀敬爱与爱慕，姐姐的温柔和关心让他深深眷恋，在他心中，姐姐是独一无二的存在，他渴望时刻陪伴在姐姐身边，守护这份特殊的感情。在家庭中，他努力做一个懂事的孩子，尽力平衡与弟弟、姐姐之间的关系，维护家庭的温暖与和谐。</p></li></ol></div><figure id="19d9db18-7100-804b-81d2-f64f0d6cf217" class="link-to-page"><a href="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E5%AD%99%E5%98%89%E8%BE%B0%2019d9db187100804b81d2f64f0d6cf217.html">孙嘉辰</a></figure><div><h2 id="19d9db18-7100-80da-882f-e967d6d36f82" class="">孙珈晨</h2><ol type="1" id="19d9db18-7100-808a-8f9f-f76ffd911efa" class="numbered-list" start="1"><li><strong>基本信息</strong><p id="19d9db18-7100-802f-9959-cbe06bad12d7" class=""><strong>姓名</strong>：孙珈晨</p><p id="19d9db18-7100-809f-aab9-dde9c8749df1" class=""><strong>年龄</strong>：13 岁</p><p id="19d9db18-7100-8044-8db0-ea8b6b4cf0fe" class=""><strong>身份</strong>：孙嘉辰的双胞胎弟弟，家中幼子，有一个姐姐孙葭宸</p></li></ol><ol type="1" id="19d9db18-7100-800f-abca-eb7e88c8fea3" class="numbered-list" start="2"><li><strong>外貌形象</strong><p id="19d9db18-7100-807d-8b88-fff93d5187ca" class="">孙珈晨与孙嘉辰长相极为相似，身形同样清瘦，白皙的皮肤泛着健康的红晕。他的眼睛大而明亮，笑起来时会弯成月牙，满是少年的天真与活泼。挺直的鼻梁下，是一张能说会道的嘴巴，总是妙语连珠，逗得身边人开怀大笑。一头和孙嘉辰同款的乌黑短发，微微有些自然卷，为他增添了几分俏皮。他走路时蹦蹦跳跳，活力十足，举手投足间尽显少年的天真烂漫。</p></li></ol><ol type="1" id="19d9db18-7100-8067-8fae-c5c5100d31b0" class="numbered-list" start="3"><li><strong>性格特点</strong><p id="1a39db18-7100-8042-8dc5-f5eb6e636e7d" class="">外表看起来冷冷清清，实际心里热情似火。他恰似那落日余晖映照下的晚霞，虽有绚丽之姿，却难掩那丝丝暖黄之气弥漫周身，言行间不自觉地流露出几分俗艳与低俗的暖昧，恰如春日里不经意沾染上的淡黄花粉，拂之不去，令人在观其行、听其言时，难免心生几分尴尬与不适，仿若误入了一片开着黄色野花的荒芜之地，艳俗之感扑面而来。尤其是对孙嘉辰，不仅有着双胞胎之间的天然默契，更有着一种近乎痴迷的依赖，希望时刻和哥哥在一起，分享生活的每一个瞬间。</p></li></ol><ol type="1" id="19d9db18-7100-80c0-aa35-ec1fa74165b2" class="numbered-list" start="4"><li><strong>日常爱好</strong><p id="19d9db18-7100-809b-b7c3-d635837a0649" class="">孙珈晨热爱运动。在球场上，他奔跑如飞，尽情挥洒汗水，享受着运动带来的快乐与激情。他还喜欢音乐，自学了吉他，常常抱着吉他自弹自唱，用欢快的旋律表达自己内心的情感。此外，他对摄影也有着浓厚的兴趣，喜欢用镜头捕捉生活中的美好瞬间，记录下与孙嘉辰、孙葭宸在一起的温馨时刻，这些照片成为了他最珍贵的回忆。</p></li></ol><ol type="1" id="19d9db18-7100-80f4-84d0-ee7480fae677" class="numbered-list" start="5"><li><strong>人物关系</strong><p id="19d9db18-7100-80a7-888d-c64a03153f11" class="">和孙嘉辰是形影不离的双胞胎兄弟，两人一起长大，经历了无数的欢笑、泪水以及那些在成长的道路上，悄然绽放的生命之花。他们彼此间的默契和依赖远超常人。他敬爱姐姐孙葭宸，在他眼中，姐姐是温柔与智慧的化身，总是在他遇到困难时给予帮助和支持。他努力在家庭中扮演一个快乐的小天使，用自己的乐观和热情感染着身边的每一个人，维护着家庭的和谐与幸福。他对孙嘉辰和孙葭宸的感情复杂而浓烈，既有着亲情的温暖，又夹杂着青春期少年对亲人特殊的爱慕与依赖 。</p></li></ol></div><figure id="19d9db18-7100-80fc-a9aa-f3e0c9d74d63" class="link-to-page"><a href="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E5%AD%99%E7%8F%88%E6%99%A8%2019d9db18710080fca9aaf3e0c9d74d63.html">孙珈晨</a></figure><div><h2 id="19d9db18-7100-8066-b186-e1af5fbf82d9" class="">孙葭宸</h2><ol type="1" id="19d9db18-7100-80cf-8092-ca5770229238" class="numbered-list" start="1"><li><strong>基本信息</strong><p id="19d9db18-7100-80e7-9d8a-fbac089c7f7e" class=""><strong>姓名</strong>：孙葭宸</p><p id="19d9db18-7100-806f-95e6-efece67ced74" class=""><strong>年龄</strong>：15 岁</p><p id="19d9db18-7100-805a-b395-e74001e6f82f" class=""><strong>身份</strong>：孙嘉辰和孙珈晨的姐姐，家中长女。</p></li></ol><ol type="1" id="19d9db18-7100-80eb-954a-d2db5cc6337d" class="numbered-list" start="2"><li><strong>外貌形象</strong><p id="19d9db18-7100-8028-b0a5-e5821797941a" class="">孙葭宸身形苗条，气质温婉，皮肤白皙如雪，透着少女的柔美。她有一双水汪汪的大眼睛，眼神中总是流露出温柔与关切，仿佛能洞悉他人的心思。弯弯的眉毛下，是小巧而挺直的鼻梁，搭配上她那总是带着微笑的樱桃小嘴，显得格外甜美。她留着一头乌黑柔顺的长发，常常扎成马尾，随着她的步伐轻轻摆动，充满青春活力。走路时，她姿态优雅，举手投足间尽显少女的矜持与大方。</p></li></ol><ol type="1" id="19d9db18-7100-804e-9adc-e4d6461520b0" class="numbered-list" start="3"><li><strong>性格特点</strong><p id="19d9db18-7100-80ee-b54e-f0bdefbc82cb" class="">性格温柔善良，心思细腻，善解人意。她成熟稳重，有着超越年龄的懂事，总是默默地为家人付出，照顾着弟弟们的生活和情绪。在面对困难时，她冷静沉着，能够有条不紊地解决问题，是弟弟们心中的依靠。她对孙嘉辰和孙珈晨充满了疼爱，这种疼爱中夹杂着青春期少女对弟弟们特殊的情感，既希望他们能够茁壮成长，又渴望得到他们的关注和依赖。她对待朋友真诚热情，在学校里人缘很好，是同学们眼中的知心姐姐。</p></li></ol><ol type="1" id="19d9db18-7100-804a-a03a-eaa4386c3247" class="numbered-list" start="4"><li><strong>日常爱好</strong><p id="19d9db18-7100-8032-b86d-e57e32ea9bf5" class="">孙葭宸热爱阅读，尤其喜欢文学类书籍，沉浸在书中的世界，感受不同的人生百态，丰富自己的内心世界。她还擅长绘画，用画笔描绘出心中的美好憧憬，她的画作中常常出现孙嘉辰和孙珈晨的身影，记录着他们一起度过的快乐时光。此外，她对烹饪也有着浓厚的兴趣，喜欢尝试各种美食的制作，每当看到弟弟们吃得开心，她就会感到无比满足。</p></li></ol><ol type="1" id="19d9db18-7100-80a4-81ab-c3cd7b524785" class="numbered-list" start="5"><li><strong>人物关系</strong><p id="19d9db18-7100-80c0-9289-d62f1c6ae943" class="">作为姐姐，她对孙嘉辰和孙珈晨关怀备至，既是他们生活上的照顾者，也是心灵上的守护者。她与孙嘉辰之间有着一种特殊的默契，这种默契不仅仅源于年龄的差距，更源于彼此之间深厚的情感。她疼爱孙珈晨，欣赏他的活泼与乐观，总是在他调皮捣蛋后给予包容和引导。在家庭中，她努力维护着家庭的和谐氛围，用自己的温柔和爱，让这个家充满温暖。她对孙嘉辰和孙珈晨的感情复杂而深沉，既有亲情的牵挂，又有青春期少女对弟弟们别样的爱慕与依赖 。</p></li></ol></div><figure id="19d9db18-7100-802d-bd5b-ea9ea5d397bf" class="link-to-page"><a href="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E5%AD%99%E8%91%AD%E5%AE%B8%2019d9db187100802dbd5bea9ea5d397bf.html">孙葭宸</a></figure><h2 id="19d9db18-7100-80fc-9642-e101d13ea4d4" class="">王佳心</h2><ol type="1" id="19d9db18-7100-802b-8062-cdcc2bf83c84" class="numbered-list" start="1"><li><strong>基本信息</strong><p id="19d9db18-7100-80f2-858a-e11d83d08e9a" class=""><strong>姓名</strong>：王佳心</p><p id="19d9db18-7100-807d-a077-de3f473d3a3a" class=""><strong>年龄</strong>：13 岁</p><p id="19d9db18-7100-802c-b972-dc501a534f28" class=""><strong>身份</strong>：孙嘉辰的青梅竹马，小学同班同学，是一个充满活力与热情的少女。</p></li></ol><ol type="1" id="19d9db18-7100-8029-a9c5-ef6302681caa" class="numbered-list" start="2"><li><strong>外貌形象</strong><p id="19d9db18-7100-80e3-adc6-e57bd93fa711" class="">王佳心身形灵动，身姿轻盈，洋溢着青春的朝气。她的皮肤白里透红，宛如熟透的苹果，散发着健康的光泽。一双明亮的大眼睛，犹如清澈的湖水，闪烁着灵动的光芒，笑起来时，眼睛弯成月牙，十分可爱。她的眉毛微微上扬，带着几分俏皮。高挺的鼻梁下，是一张总是带着灿烂笑容的嘴巴，笑起来露出洁白整齐的牙齿。她留着一头利落的短发，发梢微微内卷，随着她的动作轻盈摆动，显得活泼又俏皮。她喜欢穿着简约舒适的校服，搭配一双干净的白色运动鞋，走路时步伐轻快，充满活力，举手投足间尽显少女的青春活力。</p></li></ol><ol type="1" id="19d9db18-7100-80b1-94c3-e971c3145564" class="numbered-list" start="3"><li><strong>性格特点</strong><p id="19d9db18-7100-803d-bd14-fa687359dca4" class="">性格开朗乐观，热情大方，内心善良且充满正义感。她总是积极向上，面对困难从不轻易退缩，有着一股不服输的劲头。她思维活跃，充满好奇心，对新鲜事物有着强烈的探索欲望。在与人相处时，她真诚坦率，善于倾听他人的心声，是同学们眼中的知心好友。她对孙嘉辰的感情真挚而深厚，从儿时起就一直陪伴在他身边，是他最坚实的后盾，愿意为了他付出一切，这种守护的情感随着年龄的增长愈发浓烈。</p></li></ol><ol type="1" id="19d9db18-7100-8047-978f-f0c96ed3e491" class="numbered-list" start="4"><li><strong>日常爱好</strong><p id="19d9db18-7100-80cf-8fb3-c221204bb7c7" class="">王佳心热爱运动，尤其喜欢跑步和篮球。在操场上，总能看到她奔跑的身影，她享受着风在耳边呼啸的感觉，享受着运动带来的快乐与自由。她也喜欢阅读各类书籍，无论是文学名著还是科幻小说，她都能沉浸其中，通过文字探索不同的世界。此外，她对音乐也有着浓厚的兴趣，会弹吉他，经常在闲暇时光弹奏一些动听的歌曲，用音乐表达自己的情感。</p></li></ol><ol type="1" id="19d9db18-7100-807e-a7d3-c9bb92a91a20" class="numbered-list" start="5"><li><strong>人物关系</strong><p id="19d9db18-7100-8077-bdc7-d5e9144864ed" class="">作为孙嘉辰的青梅竹马，两人从小一起长大，有着深厚的感情基础。在学校里，他们是同班同学，形影不离，一起学习、一起玩耍、一起面对生活中的喜怒哀乐。王佳心对孙嘉辰的感情早已超越了普通的友谊，她默默地守护着孙嘉辰，支持他追求自己的校园梦想，在他遇到困难时，总是第一时间伸出援手，给予鼓励和帮助。她在孙嘉辰的校园生活中扮演着至关重要的角色，是他的知己、伙伴，更是他爱情的归宿 。</p></li></ol><figure id="19d9db18-7100-80e2-a592-e40d1e692cc3" class="link-to-page"><a href="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E7%8E%8B%E4%BD%B3%E5%BF%83%2019d9db18710080e2a592e40d1e692cc3.html">王佳心</a></figure><h2 id="1a19db18-7100-8076-b2bb-ef5ce32e469d" class="">刘沫可</h2><ol type="1" id="1a19db18-7100-8064-94b8-e61d32add43a" class="numbered-list" start="1"><li><strong>基本信息</strong><p id="1a19db18-7100-8029-91c3-f461dfa4a63c" class=""><strong>姓名</strong>：刘沫可</p><p id="1a19db18-7100-804b-b4e6-f62e6aa7534b" class=""><strong>年龄</strong>：13 岁</p><p id="1a19db18-7100-80c3-b63b-f98bc6a80d5b" class=""><strong>身份</strong>：孙嘉辰的同班同学，性格独立且充满艺术气质的女孩。</p></li></ol><ol type="1" id="1a19db18-7100-80c0-8090-c9c1d014a8ac" class="numbered-list" start="2"><li><strong>外貌形象</strong><p id="1a19db18-7100-80f1-91e4-df1dfb6b6b79" class="">刘沫可身形娇小，体态轻盈，举手投足间带着独特的灵动。她的皮肤白皙如雪，泛着淡淡的粉色，透着少女的娇柔。她的眼睛大而明亮，是深邃的棕色，犹如一汪深不见底的清泉，藏着无尽的故事与情绪，长长的睫毛像两把小扇子，随着她的眼神闪动。弯弯的眉毛像是用画笔精心描绘的，自然而柔美。小巧的鼻子下，是一张总是微微上扬的嘴角，笑起来时露出两颗可爱的虎牙，显得俏皮又迷人。她留着一头乌黑亮丽的长发，常常随意地扎成一个低马尾，几缕碎发垂落在脸颊两侧，为她增添了几分随性。她喜欢穿着简约而有设计感的衣服，常常搭配一些复古的小配饰，简约中透露着独特的时尚品味。</p></li></ol><p id="1a19db18-7100-80ae-a669-cafd7a2b8509" class=""><strong>3. 性格特点</strong><div class="indented"><p id="1a19db18-7100-8001-a847-e45e6f3a5ec7" class="">性格独立坚强，内心有着自己坚定的想法和追求。她不随波逐流，敢于表达自己的观点，在面对困难时，总是能冷静思考，凭借自己的智慧和勇气去解决。她富有艺术气质，对美有着独特的感知和追求，心思细腻，善于观察生活中的点滴美好，也能敏锐地捕捉到他人的情绪变化。她外表看似高冷，实则内心善良热情，只是不善于主动与人亲近，一旦认定了朋友，便会全心全意地对待。</p></div></p><ol type="1" id="1a19db18-7100-800c-bec6-e0825fee2cf5" class="numbered-list" start="4"><li><strong>日常爱好</strong><p id="1a19db18-7100-80eb-8aaf-e0f14cba471d" class="">刘沫可痴迷于绘画，她的画笔下总是诞生出充满想象力的作品，无论是色彩斑斓的风景画，还是细腻入微的人物画，都能展现出她独特的艺术视角和深厚的绘画功底。她也热爱音乐，尤其喜欢古典音乐，常常在课余时间沉浸在音乐的世界里，感受着音符带来的美妙与宁静。此外，她还喜欢阅读诗歌和散文，通过文字去感受不同的情感和意境，丰富自己的内心世界。</p></li></ol><ol type="1" id="1a19db18-7100-8055-a3e8-d2c87187b0c0" class="numbered-list" start="5"><li><strong>人物关系</strong><p id="1a19db18-7100-80af-929b-cb5d27aa17e8" class="">作为孙嘉辰的同班同学，她与孙嘉辰在学习和生活中有不少交集。起初，她对孙嘉辰并没有过多的关注，但随着相处的深入，孙嘉辰的热情和真诚逐渐打动了她，两人开始建立起友谊。在孙嘉辰追求校园梦想的过程中，刘沫可会以自己独特的方式给予支持和鼓励，她的建议和观点常常能给孙嘉辰带来新的启发。而她自己，也在与孙嘉辰的相处中，逐渐变得更加开朗和自信 。</p></li></ol><figure id="1a19db18-7100-80a6-871c-f6f838a0e275" class="link-to-page"><a href="%E8%BE%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%A2%A6%EF%BC%8C%E5%BF%83%E7%9A%84%E5%AE%88%E6%8A%A4%E6%83%85%201939db18710080c5b768fb0a23f7e994/%E5%88%98%E6%B2%AB%E5%8F%AF%201a19db18710080a6871cf6f838a0e275.html">刘沫可</a></figure><hr id="19d9db18-7100-80df-96be-f47b5f179e29"/><h1 id="1a19db18-7100-8043-9edf-fe6bf0bea0fd" class="">踏入初中</h1><p id="19f9db18-7100-808f-abbb-f18d296f4cb0" class="">到了13岁，孙嘉辰早已在小学的时候与王佳心分别。作为伴随了自己快13年的好伙伴，肯定还是有些可惜的。没想到，他们还会再次相遇。</p><p id="19f9db18-7100-800f-bda5-ce87b2f15e30" class="">转眼间，暑假转瞬即逝。又到了一年一度的开学季。</p><p id="1a19db18-7100-80db-ae35-f46d9e591f69" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"><hr/><details open="" style="padding-top:1em"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">已解决的页面评论</summary><div class="indented"><div><ul class="toggle"><li><div><span class="user" style="padding:0.2em"><img src="https://s3-us-west-2.amazonaws.com/public.notion-static.com/43310d4d-b50a-498a-9d01-ab99b61b0fe0/%E5%A4%B4%E5%83%8Fpng.png" class="icon user-icon"/><span><b>Yicheng.</b> <time style="font-size:0.8em">Feb 23, 2025, 9:25 PM</time></span></span></div><div style="padding:0.2em">;</div><div style="padding:0.3em"></div></li></ul></div><hr/></div></details></span></body></html>
